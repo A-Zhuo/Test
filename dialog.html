@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			#outer {
+				margin:0 auto;
+				width:60px;
+			}
+			#zzc {
+				background:rgba(0,0,0,0.3);
+				width:100%;
+				height:100%;
+				position:absolute;
+				top: 0%; 
+				left: 0%;
+				z-index:9;
+				display:none;
+			}
+			#dialog {
+				position:absolute;
+				left:50%;
+				top:50%;
+				margin-left:-150px;
+				margin-top:-110px;
+				height:220px;
+				width:300px;
+				background:#dddddd;
+				display:none;
+				border:2px solid black;
+				z-index:100;
+			}
+			#close {
+				top:5px;
+				right:5px;
+				position:absolute;
+				width:20px;
+				height:20px;
+				font-size:16px;
+			}
+			p {
+				top:100px;
+				height:20px;
+				line-height:20px;
+				font-size:14px;
+				position: relative; 
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer"><button id="btn">Click</button></div>
+		<div id="dialog">
+			<p>现在的时间是：<span id="now_time"></span></p>
+			<button id="close">X</button>
+		</div>
+		<div id="zzc"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("dialog")
+			var oBtn = document.getElementById("btn");
+			var oSpan = document.getElementById("now_time");
+			var oZzc = document.getElementById("zzc");
+			var oClo = document.getElementById("close");
+			oBtn.onclick = function() {
+				oDiv.style.display = "block";
+				oZzc.style.display = "block";
+				var myDate = new Date();
+				var mytime = myDate.toLocaleTimeString();
+				oSpan.innerHTML = mytime;
+			}
+			oClo.onclick = function() {
+				oDiv.style.display = "none";
+				oZzc.style.display = "none";
+			}
+		</script>
+	</body>
+</html>
